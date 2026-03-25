@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 120" width="560" height="120">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;900&amp;display=swap');
+      .g-mark {
+        font-family: 'Syne', 'Arial Black', sans-serif;
+        font-weight: 900;
+        font-size: 88px;
+        fill: #ECECEC;
+        letter-spacing: -3px;
+      }
+      .logo-nexgen {
+        font-family: 'Syne', 'Arial Black', sans-serif;
+        font-weight: 700;
+        font-size: 40px;
+        fill: #ECECEC;
+        letter-spacing: -0.5px;
+      }
+      .logo-labs {
+        font-family: 'Syne', 'Arial Black', sans-serif;
+        font-weight: 700;
+        font-size: 40px;
+        fill: #5B8A8A;
+        letter-spacing: -0.5px;
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="560" height="120" fill="#0C0C0C"/>
+
+  <!-- G mark -->
+  <text x="24" y="96" class="g-mark">G</text>
+
+  <!-- NexGen -->
+  <text x="108" y="72" class="logo-nexgen">NexGen</text>
+
+  <!-- Labs -->
+  <text x="340" y="72" class="logo-labs"> Labs</text>
+</svg>

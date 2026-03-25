@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Syne:wght@900&amp;display=swap');
+      .g-mark {
+        font-family: 'Syne', 'Arial Black', sans-serif;
+        font-weight: 900;
+        font-size: 340px;
+        fill: #ECECEC;
+        letter-spacing: -8px;
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="500" fill="#0C0C0C"/>
+
+  <!-- G centralizado — safe zone do círculo Instagram -->
+  <text x="250" y="370" class="g-mark" text-anchor="middle">G</text>
+</svg>
