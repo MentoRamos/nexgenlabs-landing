@@ -61,20 +61,26 @@ src="https://www.facebook.com/tr?id=917862417791922&ev=PageView&noscript=1"/>
   --font-mono: 'IBM Plex Mono', monospace;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --nav-scrolled-bg: rgba(12,12,12,0.88);
+  --terminal-bg: rgba(18,18,18,0.75);
+  --cursor-ring-border: rgba(255,255,255,0.15);
 }
 
 [data-theme="light"] {
-  --bg: #F5F5F3;
-  --bg-elevated: #EEEEEB;
-  --bg-card: #E8E8E5;
-  --bg-card-hover: #E0E0DC;
-  --surface: #D8D8D4;
-  --border: rgba(0,0,0,0.08);
-  --border-hover: rgba(0,0,0,0.16);
+  --bg: #F4F4F2;
+  --bg-elevated: #EAEAE7;
+  --bg-card: #E2E2DE;
+  --bg-card-hover: #D8D8D4;
+  --surface: #CCCCC8;
+  --border: rgba(0,0,0,0.09);
+  --border-hover: rgba(0,0,0,0.18);
   --text-1: #141414;
-  --text-2: #4A4A4A;
-  --text-3: #888888;
+  --text-2: #444444;
+  --text-3: #7A7A7A;
   --text-4: #AAAAAA;
+  --nav-scrolled-bg: rgba(244,244,242,0.92);
+  --terminal-bg: rgba(226,226,222,0.85);
+  --cursor-ring-border: rgba(0,0,0,0.15);
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -92,6 +98,7 @@ body {
   color: var(--text-1);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  transition: background 0.35s ease, color 0.35s ease;
   cursor: none;
 }
 
@@ -209,7 +216,7 @@ a { cursor: none; }
 }
 .cursor-ring {
   position: fixed; width: 40px; height: 40px;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid var(--cursor-ring-border);
   border-radius: 50%;
   pointer-events: none; z-index: 10000;
   transition: width 0.4s var(--ease-out-expo), height 0.4s var(--ease-out-expo),
@@ -239,7 +246,7 @@ a { cursor: none; }
 }
 .nav.scrolled {
   padding: 16px 48px;
-  background: rgba(12,12,12,0.85);
+  background: var(--nav-scrolled-bg);
   backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--border);
 }
@@ -478,7 +485,7 @@ a { cursor: none; }
   right: 48px; top: 50%;
   transform: translateY(-50%);
   width: 420px;
-  background: rgba(18,18,18,0.7);
+  background: var(--terminal-bg);
   backdrop-filter: blur(16px);
   border: 1px solid var(--border);
   padding: 0;
@@ -655,7 +662,7 @@ a { cursor: none; }
   color: var(--text-3);
   padding: 8px 16px;
   border: 1px solid var(--border);
-  background: rgba(12,12,12,0.6);
+  background: rgba(12,12,12,0.55);
   backdrop-filter: blur(8px);
 }
 .about-img-corner {
@@ -1077,7 +1084,7 @@ a { cursor: none; }
 .wa-btn {
   display: inline-flex; align-items: center; gap: 14px;
   padding: 20px 52px;
-  background: #1A1A1A;
+  background: var(--bg-card);
   color: var(--text-1);
   font-family: var(--font-mono);
   font-size: 0.78rem;
