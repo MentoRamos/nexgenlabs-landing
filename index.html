@@ -63,6 +63,20 @@ src="https://www.facebook.com/tr?id=917862417791922&ev=PageView&noscript=1"/>
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+[data-theme="light"] {
+  --bg: #F5F5F3;
+  --bg-elevated: #EEEEEB;
+  --bg-card: #E8E8E5;
+  --bg-card-hover: #E0E0DC;
+  --surface: #D8D8D4;
+  --border: rgba(0,0,0,0.08);
+  --border-hover: rgba(0,0,0,0.16);
+  --text-1: #141414;
+  --text-2: #4A4A4A;
+  --text-3: #888888;
+  --text-4: #AAAAAA;
+}
+
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
 ::selection {
@@ -290,6 +304,27 @@ a { cursor: none; }
   color: var(--bg);
   border-color: var(--accent);
 }
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border-hover);
+  color: var(--text-2);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.theme-toggle .icon-moon { display: none; }
+[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+[data-theme="light"] .theme-toggle .icon-moon { display: block; }
 
 .hamburger {
   display: none;
@@ -1116,6 +1151,7 @@ a { cursor: none; }
   .nav { padding: 16px 24px; }
   .nav.scrolled { padding: 12px 24px; }
   .nav-links, .nav-cta { display: none; }
+  .theme-toggle { display: flex; }
   .hamburger { display: flex; }
   .section { padding: 80px 24px; }
   .hero { padding: 0 24px; }
@@ -1316,6 +1352,10 @@ a { cursor: none; }
     <li><a href="#pricing">Pricing</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Get a Quote</a>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle light mode">
+    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -1780,6 +1820,23 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 window.addEventListener('scroll', () => {
   const orb = document.querySelector('.hero-orb');
   if (orb) orb.style.transform = `translateY(${window.scrollY * 0.2}px)`;
+});
+
+// Theme toggle
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+
+themeToggle.addEventListener('click', () => {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'light' ? 'dark' : 'light';
+  if (next === 'dark') {
+    document.documentElement.removeAttribute('data-theme');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+  }
 });
 </script>
 
