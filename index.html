@@ -1739,6 +1739,28 @@ a { cursor: none; }
   transition: color 0.3s;
 }
 .footer-link:hover { color: var(--text-1); }
+.footer-portal {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s;
+  opacity: 0.7;
+}
+.footer-portal:hover {
+  opacity: 1;
+  background: var(--accent);
+  color: var(--bg);
+}
+.footer-portal svg { stroke: currentColor; }
 .footer-bottom {
   display: flex;
   justify-content: space-between;
@@ -2331,6 +2353,10 @@ a { cursor: none; }
         <span class="logo-text" style="font-size:0.95rem;">NexGen<span> Labs</span></span>
       </div>
       <p class="footer-tagline">Development studio sob demanda.<br>IA aplicada, automação e plataformas escaláveis.</p>
+      <a href="https://app.nexglabs.com" class="footer-portal" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Client Portal
+      </a>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Navegação</div>
